@@ -1,0 +1,36 @@
+version: '2'
+services:
+  proxy:
+    build:
+      context: ${FRONTEND_BUILD_CONTEXT}/build/proxy
+      args:
+        SOURCES_MIRROR: ${DEBIAN_SOURCES}
+    volumes:
+      - ./proxy/local/nginx.conf:/etc/nginx/conf.d/default.conf
+  karambacars:
+    build:
+      context: ${BACKEND_BUILD_CONTEXT}
+      args:
+        SOURCES_MIRROR: ${DEBIAN_SOURCES}
+    environment:
+      REQUESTS_CURL_TIMEOUT: 60
+  admin:
+    build:
+      context: ${FRONTEND_BUILD_CONTEXT}
+      args:
+        APP_NAME: "admin"
+        PUBLIC_PATH: "/admin/"
+        SOURCES_MIRROR: ${DEBIAN_SOURCES}
+        SASS_BINARY_SITE: ${SASS_BINARY_SITE}
+        PHANTOMJS_CDNURL: ${PHANTOMJS_CDNURL}
+        NPM_CONFIG_REGISTRY: ${NPM_CONFIG_REGISTRY}
+  carnovo:
+    build:
+      context: ${FRONTEND_BUILD_CONTEXT}
+      args:
+        APP_NAME: "carnovo"
+        PUBLIC_PATH: "/carnovo/"
+        SOURCES_MIRROR: ${DEBIAN_SOURCES}
+        SASS_BINARY_SITE: ${SASS_BINARY_SITE}
+        PHANTOMJS_CDNURL: ${PHANTOMJS_CDNURL}
+        NPM_CONFIG_REGISTRY: ${NPM_CONFIG_REGISTRY}

@@ -1,0 +1,24 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: mysql
+    database_port: 3306
+    database_name: karambacars
+    database_user: root
+    database_password: root
+    admin_username: admin
+    admin_password: 1234
+    mailer_transport: smtp
+    mailer_host: mailserver
+    mailer_port: ~
+    mailer_user: car
+    mailer_password: 1234
+    secret: 6612D5E283F2FC884A8137F4DCF5A
+    assets_base_url: 'http://localhost:8080'
+    mailer_sender: info@carnovo.com
+    accepted_application_token_endpoint: 'http://carnovo.com:8080/confirm'
+    jato_username: evgeny.predein@apiumtech.com
+    jato_password: gold6dust
+    jato_host: 'https://webapi-live.jato.com/jato.carspecs.api'
+    jato_db: SSCE_CS2002
+    dealer_max_distance_km: 15
+    client_offer_endpoint: 'http://carnovo.com:8080/client/offer/'
